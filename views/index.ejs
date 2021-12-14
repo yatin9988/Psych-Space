@@ -1,0 +1,442 @@
+<%- include ('partials/header') %>
+<body>
+  <!-- <script> window.onload = function(){
+    document.querySelector('#autism-month').click()
+  }</script> -->
+  <% if(!preloader){ %>
+  <div id="preloader" class="bg-primary">
+    <script type="text/javascript">
+      $("body").css("overflow-y", "hidden");
+    </script>
+    <video
+      class="preloader-vid card bg-primary border-light shadow-soft"
+      autoplay
+      muted
+    >
+      <source src="/images/vid.mp4" type="video/mp4" />
+    </video>
+
+    <button class="btn btn-primary text-dark mb-2" onclick="skippreloader()">
+      skip video
+    </button>
+  </div>
+  <% } %>
+  <div id="main-content">
+    <%- include ('partials/navbar') %>
+
+    <main>
+      <div class="section section-header pb-7">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 text-center">
+              <h1 class="display-1 font-weight-bolder mb-4">
+                Welcome to Aurtistic
+              </h1>
+              <p class="lead display-3 mb-5">
+                Serving people with Autism Spectrum Disorder
+              </p>
+              <a
+                class="btn btn-primary"
+                href="/about"
+                style="background-color: rgb(192, 223, 237)"
+                ><span class="fab fa-leanpub mr-2"></span> Know more about
+                Autism<span class="fab fa-leanpub mr-2"></span
+              ></a>
+              <a
+                href="#comingsoon"
+                class="btn btn-primary text-secondary d-inline-block d-md-none mr-3 mt-3"
+                ><i class="fas fa-download mr-2"></i> Download App
+                <i class="fas fa-download mr-2"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="section section-lg pt-0" id="aim">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="card bg-primary shadow-soft border-light p-4">
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <h2 class="h1 display-3">Our Aim</h2>
+                  </div>
+                  <div class="col-12 col-lg-3 px-md-0 mb-4 mb-lg-0">
+                    <div class="card-body text-center bg-primary py-5">
+                      <div
+                        class="icon icon-shape shadow-inset border-light rounded-circle mb-3"
+                      >
+                        <span class="fas fa-bullhorn purple"></span>
+                      </div>
+                      <h2 class="h4 mr-2">Spread Awareness</h2>
+                      <p class="mb-0">
+                        Sharing information about Autism, its causes, symptoms,
+                        statistics based on ASD and the exercises for people
+                        with Autism.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-3 px-md-0 mb-4 mb-lg-0">
+                    <div class="card-body text-center bg-primary py-5">
+                      <div
+                        class="icon icon-shape shadow-inset border-light rounded-circle mb-3"
+                      >
+                        <span class="fas fa-paint-brush green"></span>
+                      </div>
+                      <h2 class="h4 mr-2">Share Activities</h2>
+                      <p class="mb-0">
+                        Enabling people to upload their art for the daily tasks
+                        alloted to them according to their preferences.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-3 px-md-0">
+                    <div class="card-body text-center bg-primary py-5">
+                      <div
+                        class="icon icon-shape shadow-inset border-light rounded-circle mb-3"
+                      >
+                        <span class="fas fa-star yellow"></span>
+                      </div>
+                      <h2 class="h4 mr-2">Improve Self</h2>
+                      <p class="mb-0">
+                        Providing quizzes/exercises that help increase cognitive
+                        abilities of the person with Autism Spectrum Disorder
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-3 px-md-0">
+                    <div class="card-body text-center bg-primary py-5">
+                      <div
+                        class="icon icon-shape shadow-inset border-light rounded-circle mb-3"
+                      >
+                        <span class="fas fa-users red"></span>
+                      </div>
+                      <h2 class="h4 mr-2">Connect People</h2>
+                      <p class="mb-0">
+                        Connecting NGOs and other organizations with the
+                        autistic people and hence, revolutionize the concept of
+                        treating it is a taboo
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-lg pt-0">
+        <div class="container">
+          <div class="row align-items-center justify-content-around">
+            <div class="col-md-6 col-xl-6 mb-5">
+              <div
+                class="card bg-primary shadow-soft border-light organic-radius p-3"
+              >
+                <img
+                  class="organic-radius img-fluid"
+                  src="/images/home.png"
+                  alt="modern desk"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-5 text-center text-md-left">
+              <h1 class="h1 mb-4">The Foundation Stones.</h1>
+              <p class="lead">
+                Aurtistic isn't just an application. It's a collection of honest
+                efforts, wonderful people and most importantly, a pure intent to
+                help. We understand that freedom and equality are two pearls of
+                the treasure of life and try to direct our efforts for the
+                upliftment of the two.
+              </p>
+              <p class="lead" style="padding-bottom: 100px">
+                Seeing the world through the eyes of Autism makes one look at
+                this miserable world with a vision of honesty and truthfulness.
+                We must live to see the beautiful things that nature gave us and
+                as we say the fact: AUTISM IS BEAUTIFUL
+              </p>
+              <!-- <img
+                  src="https://demo.themesberg.com/neumorphism-ui/assets/img/signature.svg"
+                  alt="signature"
+                  class="mt-4"
+                  width="150"
+                />-->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-lg pt-0" id="team">
+        <div class="container">
+          <div class="row justify-content-center mb-5">
+            <h2 class="h1">Our Team</h2>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div
+                class="card bg-primary shadow-soft border-light text-center py-4 mb-5"
+              >
+                <div
+                  class="profile-image shadow-inset border border-light bg-primary rounded-circle p-3 mx-auto"
+                >
+                  <img
+                    src="/images/AV.jpeg"
+                    class="card-img-top shadow-soft p-2 border border-light rounded-circle"
+                    alt="Neil Avatar"
+                  />
+                </div>
+                <div class="card-body">
+                  <h3 class="h5 mb-2">Ankit Vats</h3>
+                  <span class="h6 font-weight-normal text-gray mb-3"
+                    >Founder Aurtistic Services</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div
+                class="card bg-primary shadow-soft border-light text-center py-4 mb-5"
+              >
+                <div
+                  class="profile-image shadow-inset border border-light bg-primary rounded-circle p-3 mx-auto"
+                >
+                  <img
+                    src="/images/Aviral.png"
+                    class="card-img-top shadow-soft p-2 border border-light rounded-circle"
+                    alt="Neil Avatar"
+                  />
+                </div>
+                <div class="card-body">
+                  <h3 class="h5 mb-2">Aviral Shukla</h3>
+                  <span class="h6 font-weight-normal text-gray mb-3"
+                    >Founder Aurtistic Services</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div
+                class="card bg-primary shadow-soft border-light text-center py-4 mb-5"
+              >
+                <div
+                  class="profile-image shadow-inset border border-light bg-primary rounded-circle p-3 mx-auto"
+                >
+                  <img
+                    src="/images/Apoorv.png"
+                    class="card-img-top shadow-soft p-2 border border-light rounded-circle"
+                    alt="Neil Avatar"
+                  />
+                </div>
+                <div class="card-body">
+                  <h3 class="h5 mb-2">Apoorv Dubey</h3>
+                  <span class="h6 font-weight-normal text-gray mb-3"
+                    >Founder Aurtistic Services</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div
+                class="card bg-primary shadow-soft border-light text-center py-4 mb-5"
+              >
+                <div
+                  class="profile-image shadow-inset border border-light bg-primary rounded-circle p-3 mx-auto"
+                >
+                  <img
+                    src="/images/Naman.png"
+                    class="card-img-top shadow-soft p-2 border border-light rounded-circle"
+                    alt="Bonnie Avatar"
+                  />
+                </div>
+                <div class="card-body">
+                  <h3 class="h5 mb-2">Naman Jain</h3>
+                  <span class="h6 font-weight-normal text-gray mb-3"
+                    >Founder Aurtistic Services</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div
+                class="card bg-primary shadow-soft border-light text-center py-4 mb-5"
+              >
+                <div
+                  class="profile-image shadow-inset border border-light bg-primary rounded-circle p-3 mx-auto"
+                >
+                  <img
+                    src="/images/Vidhi.png"
+                    class="card-img-top shadow-soft p-2 border border-light rounded-circle"
+                    alt="Bonnie Avatar"
+                  />
+                </div>
+                <div class="card-body">
+                  <h3 class="h5 mb-2">Vidhi Angrish</h3>
+                  <span class="h6 font-weight-normal text-gray mb-3"
+                    >Web Developer</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+              <div
+                class="card bg-primary shadow-soft border-light text-center py-4 mb-5"
+              >
+                <div
+                  class="profile-image shadow-inset border border-light bg-primary rounded-circle p-3 mx-auto"
+                >
+                  <img
+                    src="/images/Nitish.png"
+                    class="card-img-top shadow-soft p-2 border border-light rounded-circle"
+                    alt="Christopher avatar"
+                  />
+                </div>
+                <div class="card-body">
+                  <h3 class="h5 mb-2">Nitish Suri</h3>
+                  <span class="h6 font-weight-normal text-gray mb-3"
+                    >Web Designer</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div
+                class="card bg-primary shadow-soft border-light text-center py-4 mb-5"
+              >
+                <div
+                  class="profile-image shadow-inset border border-light bg-primary rounded-circle p-3 mx-auto"
+                >
+                  <img
+                    src="/images/Ayushi.png"
+                    class="card-img-top shadow-soft p-2 border border-light rounded-circle"
+                    alt="Neil Avatar"
+                  />
+                </div>
+                <div class="card-body">
+                  <h3 class="h5 mb-2">Ayushi Teotia</h3>
+                  <span class="h6 font-weight-normal text-gray mb-3"
+                    >UI/UX Designer</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-lg pt-0" id="contact">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-12 col-lg-12 mb-5">
+              <div
+                class="card bg-primary shadow-soft border-light p-2 p-md-3 p-lg-3"
+              >
+                <div class="card-header">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 text-center mb-5">
+                      <h1 class="display-2 mb-3">Get in Touch</h1>
+                    </div>
+                  </div>
+                  <div class="row mb-5">
+                    <div class="col-md-4 col-lg-4 text-center">
+                      <div class="icon-box mb-4">
+                        <div
+                          class="icon icon-shape shadow-soft border-light rounded-circle mb-4"
+                        >
+                          <span class="fas fa-comments red"></span>
+                        </div>
+                        <h2 class="h5 icon-box-title">Whatsapp</h2>
+                        <span
+                          ><a href="https://wa.me/7253824803" target="_blank"
+                            >Click here to open chat</a
+                          ></span
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 text-center">
+                      <div class="icon-box mb-4">
+                        <div
+                          class="icon icon-shape shadow-soft border-light rounded-circle mb-4"
+                        >
+                          <span class="fas fa-headphones-alt purple"></span>
+                        </div>
+                        <h2 class="h5 icon-box-title">Call</h2>
+                        <span
+                          ><a href="tel:+917253824803" target="_blank"
+                            >+917253824803</a
+                          ></span
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 text-center">
+                      <div class="icon-box mb-4">
+                        <div
+                          class="icon icon-shape shadow-soft border-light rounded-circle mb-4"
+                        >
+                          <span class="far fa-paper-plane green"></span>
+                        </div>
+                        <h2 class="h5 icon-box-title">Email</h2>
+                        <a
+                          href="mailto:aurtisticservices@gmail.com"
+                          target="_blank"
+                          >aurtisticservices@gmail.com</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Button Modal -->
+    <button
+      type="button"
+      id="autism-month"
+      style="visibility: hidden"
+      class="btn "
+      data-toggle="modal"
+      data-target="#modal-subscribe"
+    ></button>
+    <!-- Modal Content -->
+    <div
+      class="modal fade p-0"
+      id="modal-subscribe"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modal-subscribe"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content shadow-soft  wish-dialog">
+            <button
+              type="button"
+              class="close ml-auto px-2 pt-2"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          <div class="modal-body d-flex align-items-center justify-content-center px-0 px-md-4">
+            <div class="py-3">
+              <div class="text-center">
+                <span class="modal-icon icon icon-lg display-1-lg"
+                  ></span>
+                <h1 class="display-3 modal-title my-1 red" style="font-weight: 900;">
+                 HAPPY WORLD AUTISM MONTH
+                </h1>
+                <h3 class="mb-4" style="font-weight: 600;">
+                  Autism is beautiful
+                </h3>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    <!-- End of Modal Content -->
+    <%- include ('partials/footer') %>
+  </div>
+</body>

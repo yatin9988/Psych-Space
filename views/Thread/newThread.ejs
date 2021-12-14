@@ -1,0 +1,30 @@
+<%- include ('../partials/header') %>
+<div id="main-content">
+  <%- include ('../partials/navbar') %>
+  <main>
+    <section class="section section-header">
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center my-5">
+                <h3>A story by <%= user.name %></h3>
+            </div>
+          <div class="col-12 col-lg-8 d-flex justify-content-center">
+            <form action="/story/<%= parent_id %>/thread" method="POST" class="w-75">
+                <div class="form-group mb-3">
+                    <label class="lead">Give your Story A Title</label>
+                    <input type="text" class="form-control" name="storyTitle">
+                </div>
+                <div class="form-group">
+                    <label class="lead">Share Your Story With Us</label>
+                    <textarea class="form-control" rows="6" name="storyContent"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<%- include('../partials/footer') %>

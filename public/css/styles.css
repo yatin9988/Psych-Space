@@ -1,0 +1,103 @@
+
+/* PRELOADER */
+
+#preloader{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: #fff; 
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#preloader video{
+    position:fixed;
+    top: 50px;
+    bottom: 0;
+    height: 80%;
+    padding: 2em;
+}
+
+#preloader button{
+    position: fixed;
+    bottom: 0;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.5em;
+    width: 90%;
+    height: 50px;
+    z-index: 5;
+}
+body::-webkit-scrollbar {
+  width: 0.4em;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(142, 193, 218, 0.63);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(105, 162, 190);
+  outline: 1px solid rgb(142,193,218);
+}
+.nav-link{
+  color: #000 !important;
+}
+.red{
+  color: rgb(216, 85, 85);
+}
+.yellow{
+  color: rgb(216, 216, 78);
+}
+.green{
+  color: rgb(90, 194, 90);
+}
+.purple{
+  color: rgb(214, 94, 214);
+}
+.dropdown-menu{
+  box-shadow: 6px 6px 12px rgb(142 193 218), -6px -6px 12px #d3e8f2 !important;
+}
+.wish-dialog{
+  background: url('/images/wish3.png');
+  background-position: center;
+  min-height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (max-width: 768px){
+    #preloader video{
+        height: 40%;
+        padding: 1em;
+        top: 100px;
+    }
+    #preloader button{
+        bottom: 30%;
+        margin: 0;
+    }
+}
+@keyframes animatedBackground {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+  }
+  
+  #animate-area {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 400px;
+    background-image: url(https://davidwalsh.name/demo/bg-clouds.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: animatedBackground 40s linear infinite;
+    position: absolute;
+  }

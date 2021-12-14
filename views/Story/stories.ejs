@@ -1,0 +1,103 @@
+<%- include ('../partials/header') %>
+<div id="main-content">
+    <%- include ('../partials/navbar') %>
+    <main>
+        <section class="section section-header container">
+            <% if(user.length != 0){ %> 
+            <div class="text-right">
+                <a href="/stories/new" class="btn btn-primary mr-2 mb-2">New Story</a>
+            </div>
+            <% } %>
+            <div class="card-columns pt-5" >
+
+            <% stories.forEach((story)=>{ 
+                if(story.approved && story.parent_id == "null"){
+                %>  
+                
+                        <div class="card bg-primary shadow-soft border-light mt-3">
+                            <div class="card-header rounded pb-0">
+                                <div class="post-meta mb-4">
+                                    <div class="media d-flex align-items-center justify-content-between">
+                                        <div class="post-group ">
+                                            <div class=" d-flex align-items-center">
+                                                <img class="avatar-md mr-2 img-fluid rounded-circle" src="<%= story.author.profilePic %>" > 
+                                                <div class="my-0 ml-3">
+
+                                                    <a href="/story/<%= story.story_id %>"><h3 >A Story by <br> <%= story.author.name %></h3></a>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <span class="small"><span class="far fa-calendar-alt mr-1"></span><%= new Date(story.date_posted).toString().substr(4,11) %></span>
+                                                        <!-- <span class="small"><span class="far fa-clock "></span><%= new Date(story.date_posted).toString().substr(15,6) %></span> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <% if(user.length != 0 && user.user_id == story.author.uid){ %>
+                                        <div class="d-flex align-items-center">
+                                            <div class="btn-group">
+                                                <button class="btn btn-link border-0 dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="icon icon-sm">
+                                                        <span class="fas fa-ellipsis-v icon-secondary"></span>
+                                                    </span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                               
+                                                <div class="dropdown-menu">
+                                                    <!-- <a class="dropdown-item" href="#"><span class="fas fa-edit mr-2"></span>
+                                                        Edit post</a> -->
+                                                        <form
+                                                        action="/story/<%= story.story_id %>?_method=DELETE"
+                                                        method="POST"
+                                                      >
+                                                        <button
+                                                          class="dropdown-item text-danger"
+                                                          type="submit"
+                                                        >
+                                                          <span
+                                                            class="fa fa-trash mr-2"
+                                                            aria-hidden="true"
+                                                          ></span>
+                                                          Delete post
+                                                        </button>
+                                                      </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body py-4">
+                                <a href="/story/<%= story.story_id %>">
+                                    <h3 class="h4 my-4"><%= story.title %></h3>
+                                </a>
+                                <p class="card-text mb-4"><%= story.content %></p>
+                            </div>
+                            <div class="card-footer pt-0">
+                                <div class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between">
+                                    <div class="post-details mb-3 mb-lg-0">
+                                        <form action="/story/<%= story.story_id %>/like" method="POST">
+                                            <button class="btn btn-sm btn-primary animate-hover mr-2" type="submit">
+                                                <span class="fas fa-arrow-up mr-2 animate-up-2"></span>
+                                                <%= story.likes.length %>
+                                            </button>
+                                        </form>
+                                        
+                                    </div>
+                                    <div class="post-meta">
+                                        <a class="text-dark mr-3" href="/story/<%= story.story_id %>"><span class="far fa-comments mr-2"></span> <%= story.comments.length %></a>
+                                        <button class="btn mr-3 btn-link text-black border-0" data-clipboard-text="https://aurtisticservices.in/story/<%= story.story_id %>"><span class="fas fa-share mr-2" ></span>Share</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <%}}) %>
+                </div>
+            
+
+        </section>
+    </main>
+</div>
+
+    
+    <%- include('../partials/footer') %>

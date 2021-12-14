@@ -1,0 +1,48 @@
+<%- include ('./partials/header') %>
+<div id="main-content">
+    <%- include ('./partials/navbar') %>
+    <main>
+        <section class="section section-header container">
+            <table class="table shadow-soft rounded">
+                <tr>
+                    <th class="border-0" scope="col" >#</th>
+                    <th class="border-0" scope="col" >Username</th>
+                    <th class="border-0" scope="col" >Email</th>
+                    <th class="border-0" scope="col" >Story Title</th>
+                    <th class="border-0" scope="col" >Story</th>
+                    <th class="border-0" scope="col" >Action</th>
+                </tr>
+                <% var i = 1; %>
+                <% stories.forEach(story=>{ 
+                    if(!story.approved){
+                %>
+                <tr> 
+                    <td><%= i++ %></td>
+                    <td ><%= story.author.name %></td>
+                    <td ><%= story.author.email %></td>
+                    <td><%= story.title %></td>
+                    <td><%= story.content %></td>
+                    <td class="d-flex">
+                        <form action="/dashboard?_method=PUT" method="POST">
+                            <input type="hidden" name="story_id" value="<%= story.story_id %>">
+                            <button class="btn btn-icon-only btn-primary text-success mr-3" type="submit" >
+                                <span aria-hidden="true" class="fas fa-check"></span>
+                            </button>
+                        </form>
+                        <form action="/dashboard?_method=DELETE" method="POST">
+                            <input type="hidden" name="story_id" value="<%= story.story_id %>">
+                            <button class="btn btn-icon-only btn-primary text-danger mr-3" type="submit" >
+                                <span aria-hidden="true" class="fas fa-times"></span>
+                            </button>
+                        </form>
+                        </td>
+                </tr>
+            <% }}) %>
+            </table>
+
+        </section>
+    </main>
+</div>
+
+    
+    <%- include('./partials/footer') %>

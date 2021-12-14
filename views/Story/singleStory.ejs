@@ -1,0 +1,303 @@
+<%- include ('../partials/header') %>
+<div id="main-content">
+  <%- include ('../partials/navbar') %>
+  <main>
+    <section class="section section-header px-3 px-md-5">
+      <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-7 col-lg-5">
+          <div class="card bg-primary shadow-soft border-light mt-5 mt-md-0">
+            <div class="card-header rounded pb-0">
+              <div class="post-meta mb-4">
+                <div
+                  class="media d-flex align-items-center justify-content-between"
+                >
+                  <div class="post-group">
+                    <div class="d-flex align-items-center">
+                      <img
+                        class="avatar-lg mr-2 img-fluid rounded-circle"
+                        src="<%= story.author.profilePic %>"
+                      />
+                      <div class="my-0 ml-3">
+                        <h2>A Story by <%= story.author.name %></h2>
+                        <div class="d-flex flex-column justify-content-center">
+                          <span class="small"
+                            ><span class="far fa-calendar-alt mr-1"></span><%=
+                            new Date(story.date_posted).toString().substr(4,11) %></span
+                          >
+                          <!-- <span class="small"
+                            ><span class="far fa-clock"></span><%=
+                            new Date(story.date_posted).toString().substr(15,6) %></span
+                          > -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <% if(user.length != 0 && user.user_id == story.author.uid){
+                  %>
+                  <div class="d-flex align-items-center">
+                    <div class="btn-group dropright">
+                      <button
+                        class="btn btn-link border-0 dropdown-toggle dropdown-toggle-split m-0 p-0"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        <span class="icon icon-sm">
+                          <span class="fas fa-ellipsis-v icon-secondary"></span>
+                        </span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+
+                      <div class="dropdown-menu">
+                        <!-- <a class="dropdown-item" href="#"
+                          ><span class="fas fa-edit mr-2"></span> Edit post</a
+                        > -->
+                        <form
+                          action="/story/<%= story_id %>?_method=DELETE"
+                          method="POST"
+                        >
+                          <button
+                            class="dropdown-item text-danger"
+                            type="submit"
+                          >
+                            <span
+                              class="fa fa-trash mr-2"
+                              aria-hidden="true"
+                            ></span>
+                            Delete post
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+            <div class="card-body py-4">
+              <a href="#">
+                <h3 class="h4 my-4"><%= story.title %></h3>
+              </a>
+              <p class="card-text mb-4"><%= story.content %></p>
+            </div>
+            <div class="card-footer pt-0">
+              <div
+                class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between"
+              >
+                <div class="post-details mb-3 mb-lg-0">
+                  <form action="/story/<%= story_id %>/like" method="POST">
+                    <button
+                      class="btn btn-sm btn-primary animate-hover mr-2"
+                      type="submit"
+                    >
+                      <span class="fas fa-arrow-up mr-2 animate-up-2"></span>
+                      <%= story.likes.length %>
+                    </button>
+                  </form>
+                </div>
+                <div class="post-meta">
+                  <a class="text-dark mr-3" style="cursor: default;" href="#" onClick="return false;"
+                    ><span class="far fa-comments mr-2"></span> <%=
+                    story.comments.length %></a
+                  >
+                  <button class="btn mr-3 btn-link text-black border-0" data-clipboard-text="https://aurtisticservices.in/story/<%= story_id %>" >
+                    <span class="fas fa-share mr-2"></span>Share
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="comments-section row justify-content-center">
+              <form
+                class="col-10"
+                action="/story/<%= story_id %>/comment"
+                method="POST"
+              >
+                <div class="form-group">
+                  <label class="lead">Say Something...</label>
+                  <div class="input-group mb-4">
+                    <textarea class="form-control" name="comment"> </textarea>
+                    <div class="input-group-append">
+                      <button
+                        class="input-group-text btn btn-primary"
+                        type="submit"
+                      >
+                        <span class="fas fa-arrow-right"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="px-2">
+              <div class="card-header rounded pb-0 px-2 px-xl-3">
+                <% story.comments.forEach((comment)=>{ %>
+                <div class="post-meta mb-4">
+                  <div
+                    class="media d-flex align-items- justify-content-between"
+                  >
+                    <div class="post-group">
+                      <div class="d-flex align-items-start">
+                        <img
+                          class="avatar-md mr-2 img-fluid rounded-circle"
+                          src="<%= comment.author.profilePic %>"
+                        />
+                        <div class="my-0 ml-3">
+
+                            <h6 class="m-0"><%= comment.author.name %></h6>
+                            <p style="font-size: 0.7em;" class="mb-1">
+                              <!-- <%= new Date(comment.date_created).toString().substr(15,6)   %> , -->
+                              <%= new Date(comment.date_created).toString().substr(4,11) %> </p>
+                          <span><%= comment.content %></span>
+
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 my-5 text-right">
+            <p class="lead">
+              <a href="/story/<%= story_id %>/thread/new"
+                >Continue this thread...</a
+              >
+            </p>
+          </div>
+        </div>
+        <% if(threads.length != 0){ %>
+        <div class="col-12 col-md-5">
+          <div class="row">
+            <div class="col-12 text-right">
+              <a href="/story/<%= story_id %>/threads" class="btn btn-primary btn-block">View All Threads</a>
+            </div>
+            <% threads.forEach((thread)=>{ if(thread.approved){ %>
+
+            <div class="col-xl-6">
+              <div class="card bg-primary shadow-soft border-light mt-3">
+                <div class="card-header rounded pb-0">
+                  <div class="post-meta mb-4">
+                    <div
+                      class="media d-flex align-items-center justify-content-between"
+                    >
+                      <div class="post-group">
+                        <div class="d-flex align-items-center">
+                          <img
+                            class="avatar-lg mr-2 img-fluid rounded-circle"
+                            src="<%= thread.author.profilePic %>"
+                          />
+                          <div class="my-0 ml-3">
+                            <a href="/story/<%= thread.thread_id %>"
+                              ><h3 class="h4 my-4"><%= thread.title %></h3></a
+                            >
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <span class="small"
+                                ><span class="far fa-calendar-alt mr-1"></span
+                                ><%= new Date(thread.date_posted).toString().substr(4,11) %></span
+                              >
+                              <!-- <span class="small"
+                                ><span class="far fa-clock"></span><%=
+                                new Date(thread.date_posted).toString().substr(15,6) %></span
+                              > -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <% if(user.length != 0 && user.user_id ==
+                      thread.author.uid){ %>
+                      <div class="d-flex align-items-center">
+                        <div class="btn-group">
+                          <button
+                            class="btn btn-link border-0 dropdown-toggle dropdown-toggle-split m-0 p-0"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            <span class="icon icon-sm">
+                              <span
+                                class="fas fa-ellipsis-v icon-secondary"
+                              ></span>
+                            </span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+
+                          <div class="dropdown-menu">
+                            <!-- <a class="dropdown-item" href="#"
+                              ><span class="fas fa-edit mr-2"></span> Edit
+                              post</a
+                            > -->
+                            <form
+                              action="/story/<%= thread.thread_id %>?_method=DELETE"
+                              method="POST"
+                            >
+                              <button
+                                class="dropdown-item text-danger"
+                                type="submit"
+                              >
+                                <span
+                                  class="fa fa-trash mr-2"
+                                  aria-hidden="true"
+                                ></span>
+                                Delete post
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-4">
+                  <p class="card-text mb-4"><%= thread.content %></p>
+                </div>
+                <div class="card-footer pt-0">
+                  <div
+                    class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between"
+                  >
+                    <div class="post-details mb-3 mb-lg-0">
+                      <form
+                        action="/story/<%= thread.thread_id %>/like"
+                        method="POST"
+                      >
+                        <button
+                          class="btn btn-sm btn-primary animate-hover mr-2"
+                          type="submit"
+                        >
+                          <span
+                            class="fas fa-arrow-up mr-2 animate-up-2"
+                          ></span>
+                          <%= thread.likes.length %>
+                        </button>
+                      </form>
+                    </div>
+                    <div class="post-meta">
+                      <a
+                        class="text-dark mr-3"
+                        href="/story/<%= thread.thread_id %>"
+                        ><span class="far fa-comments mr-2"></span> <%=
+                        thread.comments.length %></a
+                      >
+                      <button class="btn mr-3 btn-link text-black border-0" data-clipboard-text="https://aurtisticservices.in/story/<%= thread.thread_id %>">
+                        <span class="fas fa-share mr-2"></span>Share
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }}) %>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </section>
+  </main>
+</div>
+
+<%- include('../partials/footer') %>

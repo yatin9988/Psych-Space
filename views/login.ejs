@@ -1,0 +1,41 @@
+<%- include ('partials/header') %>
+
+<div class="">
+
+  
+
+      <!-- Card containing the sign-in UI -->
+      <div id="signed-out-card" class="">
+          
+          <button id="sign-in-button" class="">Sign in with Google</button>
+      </div>
+
+      <!-- Card containing the signed-in UI -->
+      <div id="signed-in-card" class="">
+          
+
+        <button id="sign-out-button" class="">Sign out</button>
+    </div>
+      
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+<script>
+var firebaseConfig = {
+  apiKey: "AIzaSyBe89i6pn2DaF_RkZaqu3PpvV1JqLxNfVQ",
+  authDomain: "aurtistic-5f39f.firebaseapp.com",
+  databaseURL: "https://aurtistic-5f39f-default-rtdb.firebaseio.com",
+  projectId: "aurtistic-5f39f",
+  storageBucket: "aurtistic-5f39f.appspot.com",
+  messagingSenderId: "638536142884",
+  appId: "1:638536142884:web:f5087583b0ae14e0cb48b1",
+  measurementId: "G-DK8EVF0973"
+};
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="/js/main.js"></script>
+<Script src="/js/auth.js"></Script>
+</body>
+</html>
